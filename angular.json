@@ -13,6 +13,7 @@
         "build": {
           "builder": "@ngx-env/builder:application",
           "options": {
+            "outputPath":"dist/ecom-proj2",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js",
