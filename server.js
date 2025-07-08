@@ -16,7 +16,7 @@ app.use('/api', middlewares, apiRouter);
 
 // Fallback for Angular routing
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/ecom-proj2/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/ecom-proj2/browser/index.html'));
 });
 
 app.listen(PORT, () => {
