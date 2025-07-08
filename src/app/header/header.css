@@ -1,0 +1,61 @@
+.suggestions {
+    position: absolute;
+    display: list-item;
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    top: 45px;
+    border: 1px solid #ddd;
+    list-style-type: none;
+}
+
+.suggestions li {
+    list-style: none;
+    border: 1px solid #fff;
+}
+
+.suggestions li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: blueviolet;
+}
+
+/* for larger than xl */
+@media only screen and (min-width: 1200px) {
+    input {
+        min-width: 500px;
+    }
+
+    .suggestions {
+        width: 500px;
+        font-size: 1.2rem;
+    }
+}
+
+/* for lg to xl */
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+    input {
+        min-width: 400px;
+    }
+
+    .suggestions {
+        width: 400px;
+        font-size: 1.1rem;
+    }
+}
+
+/* for sm to lg size */
+@media only screen and (max-width: 991px) and (min-width: 576px) {
+    .suggestions {
+        width: 206.22px;
+        font-size: 1rem;
+    }
+}
+
+/* for smaller than sm */
+@media only screen and (max-width: 575px) {
+    .suggestions {
+        width: 206.22px;
+        font-size: 1rem;
+    }
+}

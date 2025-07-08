@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Checkout</h1>
+    <p *ngIf="orderMsg" class="text-center text-success fs-2 mt-5 placed"><fa-icon
+            [icon]="faPlaced"></fa-icon>&nbsp;{{orderMsg}}</p>
+    <p class="text-center text-danger fs-2">{{emptyCartMsg}}</p>
+    <div *ngIf="!orderMsg" class="row">
+        <div class="col-sm-7 mb-3">
+            <h3 class="text-center">Add shipping address</h3>
+            <form #orderData="ngForm" (ngSubmit)="orderNow(orderData.value)">
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label ms-1">Email</label>
+                    <input id="emailInput" name="email" type="email" class="form-control" placeholder="Enter your Email"
+                        ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="addressInput" class="form-label ms-1">Adress</label>
+                    <input id="addressInput" name="address" type="text" class="form-control"
+                        placeholder="Enter your address" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="contactInput" class="form-label ms-1">Contact</label>
+                    <input id="contactInput" name="contact" type="text" class="form-control"
+                        placeholder="Enter your contact" ngModel>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-warning form-control mb-3">Order Now</button>
+                </div>
+            </form>
+        </div>
+
+        <div *ngIf="!orderMsg" class="col-sm-5">
+            <!-- <h3 class="text-center">Total Amount: $2499</h3>
+            <h4 class="text-center">Payment Method: <b>Pay on Delivery</b></h4> -->
+            <h3 class="text-center mb-3">Summary</h3>
+            <ul class="text-start p-2 p-lg-4 border">
+                <li class="d-flex justify-content-between">
+                    <span>Amount: </span><span>{{priceSummary.price | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Tax(10%): </span><span>{{priceSummary.tax | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Delivery: </span><span>{{priceSummary.delivery | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Discount: </span><span>{{priceSummary.discount | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between mt-2">
+                    <span>
+                        <h4>Total: </h4>
+                    </span><span>
+                        <h4>{{priceSummary.total | currency}}</h4>
+                    </span>
+                </li>
+            </ul>
+            <p class="d-flex justify-content-center">Payment Method:&nbsp;<b>Pay on Delivery</b></p>
+        </div>
+    </div>
+</div>

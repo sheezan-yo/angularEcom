@@ -1,0 +1,8 @@
+div a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div a:hover {
+    color: blue !important;
+}

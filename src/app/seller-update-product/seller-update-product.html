@@ -1,0 +1,44 @@
+<form #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)" class="col-lg-6 offset-lg-3 container">
+    <h1 class="text-center text-secondary">Update Product</h1>
+    <p class="text-success text-center">{{productMsg}}</p>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label ms-1">Product Name</label>
+        <input id="nameInput" name="name" type="text" class="form-control" placeholder="Enter Product Name"
+            ngModel="{{productData?.name}}">
+    </div>
+    <div class="mb-3">
+        <label for="priceInput" class="form-label ms-1">Price</label>
+        <input id="priceInput" name="price" type="text" class="form-control" placeholder="Enter Product Price"
+            ngModel="{{productData?.price}}">
+    </div>
+    <div class="mb-3">
+        <label for="CategoryInput" class="form-label ms-1">Category</label><br />
+        <select name="category" id="categoryInput" class="form-select" ngModel="{{productData?.category}}">
+            <option value="null" selected>select below</option>
+            <option value="beauty">Beauty</option>
+            <option value="books">Books</option>
+            <option value="clothing">Clothing</option>
+            <option value="grocery">Grocery</option>
+            <option value="home">Home Furnishing</option>
+            <option value="mobile">Mobile Phone</option>
+            <option value="toys">Toys</option>
+            <option value="watch">Watches</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="descritionInput" class="form-label ms-1">Description</label><br />
+        <textarea name="description" id="descriptionInput" placeholder="Enter Product Description" class="form-control"
+            ngModel="{{productData?.description}}"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label ms-1">Product Image</label>
+        <input id="imageUrl" name="image" type="url" class="form-control" placeholder="Enter Product Image URL"
+            ngModel="{{productData?.image}}">
+    </div>
+    <div class="mt-5 text-center">
+        <button class="btn btn-dark form-control mb-3" data-bs-toggle="modal" data-bs-target="#prodMsg"
+            (click)="clearFields()">Update
+            Product</button>
+    </div>
+</form>

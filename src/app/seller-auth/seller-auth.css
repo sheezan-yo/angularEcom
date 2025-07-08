@@ -1,0 +1,12 @@
+.loginText{
+    text-decoration: none;
+}
+
+.formToggle{
+    color: rgb(21, 52, 110);
+}
+
+.formToggle:hover{
+    color: blue;
+    cursor: pointer;
+}

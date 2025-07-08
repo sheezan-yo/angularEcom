@@ -1,0 +1,9 @@
+img {
+    width: 200px;
+    cursor: pointer;
+}
+
+h4,
+p {
+    cursor: pointer;
+}

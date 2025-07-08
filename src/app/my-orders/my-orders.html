@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <h1>My Orders</h1>
+    <p *ngIf="!orderData || orderData.length<=0" class="text-danger fs-2">You have not placed any
+        orders yet...</p>
+    <table *ngIf="orderData && orderData.length" class="table table-hover">
+        <thead>
+            <th>Order</th>
+            <th>Order ID</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let order of orderData" class="align-middle">
+                <td><img src="https://th.bing.com/th/id/OIP.Yj7KYRsJAYVmUpOUBy_PGwHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        alt=""></td>
+                <td>#{{order.id}}</td>
+                <td>{{order.totalPrice | currency}}</td>
+                <td>In Progress</td>
+                <td><button class="btn btn-danger" (click)="cancelOrder(order.id)">Cancel Order</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

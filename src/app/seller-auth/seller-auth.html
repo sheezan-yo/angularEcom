@@ -1,0 +1,40 @@
+<form *ngIf="!showLogin" #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)"
+    class="col-lg-6 offset-lg-3 container">
+    <h1 class="text-center text-secondary">Seller sign-up</h1>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label ms-1">Name</label>
+        <input id="nameInput" name="name" type="text" class="form-control" placeholder="Enter your Name" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="emailInput" class="form-label ms-1">Email</label>
+        <input id="emailInput" name="email" type="email" class="form-control" placeholder="Enter your Email" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="passInput" class="form-label ms-1">Password</label>
+        <input id="passInput" name="password" type="password" class="form-control" placeholder="Enter your Password"
+            ngModel>
+
+    </div>
+    <div class="mt-5 text-center">
+        <button class="btn btn-primary form-control mb-3">Sign Up</button>
+        <a (click)="openLogin()" class="formToggle loginText">Already have account? Click for Login</a>
+    </div>
+</form>
+
+<form *ngIf="showLogin" #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)"
+    class="col-lg-6 offset-lg-3 container">
+    <h1 class="text-center text-secondary">Seller Login</h1>
+    <div class="mb-3">
+        <label for="emailInput" class="form-label ms-1">Email</label>
+        <input id="emailInput" name="email" type="email" class="form-control" placeholder="Enter your Email" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="passInput" class="form-label ms-1">Password</label>
+        <input id="passInput" name="password" type="password" class="form-control" placeholder="Enter your Password"
+            ngModel>
+    </div>
+    <div class="mt-5 text-center">
+        <button class="btn btn-primary form-control mb-3">Login</button>
+        <a (click)="openSignup()" class="formToggle loginText">New here? Click for SignUp</a>
+    </div>
+</form>

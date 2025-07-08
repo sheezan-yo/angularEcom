@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <h1 class="text-center">Cart Page</h1>
+    <p *ngIf="!cartData || cartData.length<=0" class="text-center text-danger fs-2 mt-5">Your cart is empty
+        <br /><span><a href="">Click here
+                to explore products</a></span>
+    </p>
+    <div *ngIf="cartData && cartData.length" class="row">
+        <div class="col-sm-8 border border-secondary-subtle pt-3 mb-5">
+            <ul *ngFor="let item of cartData"
+                class="d-flex align-items-center mb-3 pb-3 border-bottom border-secondary-subtle gap-4">
+                <li>
+                    <a routerLink="/details/{{item.productId}}"><img src="{{item.image}}" alt=""></a>
+                </li>
+                <li>
+                    <span><a routerLink="/details/{{item.productId}}"
+                            class="text-dark link-underline link-underline-opacity-0">{{item.name}}</a></span>
+                </li>
+                <li>
+                    <span>Price : {{item.price | currency}}</span>
+                </li>
+                <li>
+                    <span>Quantity: {{item.quantity}}</span>
+                </li>
+                <li>
+                    <button class="btn btn-outline-danger" (click)="removeFromCart(item.id?.toString())">Remove from
+                        Cart</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <h3 class="text-center mb-3">Summary</h3>
+            <ul class="text-start p-2 border border-secondary-subtle">
+                <li class="d-flex justify-content-between">
+                    <span>Amount: </span><span>{{priceSummary.price | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Tax(10%): </span><span>{{priceSummary.tax | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Delivery: </span><span>{{priceSummary.delivery | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>Discount: </span><span>{{priceSummary.discount | currency}}</span>
+                </li>
+                <li class="d-flex justify-content-between mt-2">
+                    <span>
+                        <h4>Total: </h4>
+                    </span><span>
+                        <h4>{{priceSummary.total | currency}}</h4>
+                    </span>
+                </li>
+                <li class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-success form-control" (click)="checkout()">Checkout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="row align-items-center" *ngIf="productDet">
+    <div class="col-sm-6">
+        <img src="{{productDet.image}}" alt="">
+    </div>
+    <div class="col-sm-6 justify-content-center">
+        <h2>{{productDet.name | titlecase}}</h2>
+        <h4>Price: {{productDet.price | currency}}</h4>
+        <p>Category: {{productDet.category | titlecase}}</p>
+        <p>Description: {{productDet.description}}</p>
+        <div class="btn-group gap-3 mb-4">
+            <button *ngIf="!removeCart" class="btn btn-outline-primary btn-lg" (click)="addToCart()">Add to
+                Cart</button>
+            <button *ngIf="removeCart" class="btn btn-outline-primary btn-lg"
+                (click)="removeFromCart(productDet.id)">Remove from
+                Cart</button>
+            <button class="btn btn-outline-danger btn-lg">Buy Now</button>
+        </div>
+        <div class="input-group">
+            <button (click)="quantity('subt')" class="btn btn-outline-dark">-</button>
+            <input type="text" value="{{pdtQuantity}}" />
+            <button (click)="quantity('plus')" class="btn btn-outline-dark">+</button>
+        </div>
+    </div>
+</div>

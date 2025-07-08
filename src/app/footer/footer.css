@@ -1,0 +1,18 @@
+ul li {
+    list-style: none;
+}
+
+/* for sm to lg size */
+@media only screen and (max-width: 991px) and (min-width: 576px) {
+    .lgHide{
+        display: none;
+    }
+}
+
+/* for smaller than sm */
+@media only screen and (max-width: 575px) {
+    .smHide {
+        display: none !important;
+    }
+}
+

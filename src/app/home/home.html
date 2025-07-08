@@ -1,0 +1,37 @@
+<ngb-carousel *ngIf="popularProd" class="mb-5">
+    <ng-template *ngFor="let item of popularProd" ngbSlide>
+        <div class="picsum-img-wrapper">
+            <a routerLink="details/{{item.id}}"><img class="carImg" src="{{item.image}}" alt="slide" /></a>
+        </div>
+        <div class="carousel-caption bg-secondary bg-opacity-75 rounded">
+            <h3 class="text-dark">{{item.name}}</h3>
+            <p>{{item.description}}</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
+
+<div class="productListWrapper">
+    <h1 class="text-center">Trendy Products</h1><br>
+    <div class="container-fluid">
+        <div class="row row-gap-3 justify-content-between">
+            <div class="text-center border border-2 border-secondary-subtle shadow pb-3"
+                *ngFor="let product of trendyProd">
+                <div class="prodImg d-flex justify-content-center">
+                    <a routerLink="details/{{product.id}}"><img src="{{product.image}}" alt=""></a>
+                </div>
+                <hr />
+                <div class="details">
+                    <h5 routerLink="details/{{product.id}}">{{product.name}}</h5>
+                    <p>Price: {{product.price | currency}}</p>
+                    <div class="btn-group gap-1">
+                        <button class="btn btn-outline-primary" routerLink="details/{{product.id}}"><fa-icon
+                                [icon]="faInfo"></fa-icon> View
+                            Details</button>
+                        <button class="btn btn-outline-secondary"><fa-icon [icon]="faCart"></fa-icon> Add to
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

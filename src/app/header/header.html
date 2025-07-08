@@ -1,0 +1,113 @@
+<!-- modal Seller Logout -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Log Out</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to logout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" (click)="logout()" data-bs-dismiss="modal">yes,
+                    logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal user Logout -->
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Log Out</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to logout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" (click)="logoutUser()" data-bs-dismiss="modal">yes,
+                    logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm mb-3 px-2">
+    <a class="navbar-brand" href="">
+        E-Comm
+    </a>
+    <form *ngIf="menuType==='default' || 'user' || 'seller'" class="searchForm d-flex list-group list-group-horizontal"
+        role="search">
+        <input type="search" #searchInput (keyup)="searchProduct($event)" (blur)="hideSearch()"
+            class="form-control me-2" placeholder="Search Products">
+        <button class="btn btn-outline-secondary" (click)="submitSearch(searchInput.value)">Search</button>
+        <ul class="suggestions list-group" *ngIf="searchResult">
+            <li *ngFor="let item of searchResult" class="list-group-item list-group-item-action">
+                <a (mousedown)="productDetail(item.id)">{{item.name | titlecase}}</a>
+            </li>
+        </ul>
+    </form>
+    <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span></button>
+
+    <div [ngSwitch]="menuType" class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul *ngSwitchCase="'default'" class="navbar-nav mr-auto ms-3">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/seller-auth">Seller</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user-auth">Login/signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cart-page">Cart({{cartItems}})</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    style="cursor: pointer;">LogOut</a>
+            </li> -->
+        </ul>
+        <ul *ngSwitchCase="'seller'" class="navbar-nav mr-auto ms-3">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="seller-add-product">Add Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/seller-home">List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{sellerName | titlecase}}</a>
+            </li>
+            <li *ngIf="!loggedOut" class="nav-item">
+                <a class="nav-link text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    style="cursor: pointer;">LogOut</a>
+            </li>
+        </ul>
+        <ul *ngSwitchCase="'user'" class="navbar-nav mr-auto ms-3">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user-auth">{{userName | titlecase}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cart-page">Cart({{cartItems}})</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/my-orders">My Orders</a>
+            </li>
+            <li *ngIf="!userLoggedout" class="nav-item">
+                <a class="nav-link text-danger" data-bs-toggle="modal" data-bs-target="#userModal"
+                    style="cursor: pointer;">LogOut</a>
+            </li>
+        </ul>
+    </div>
+</nav>

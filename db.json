@@ -1,0 +1,134 @@
+{
+  "seller": [
+    {
+      "name": "Buggatti",
+      "email": "jblttfhl@hi2.in",
+      "password": "asd123",
+      "id": 1
+    },
+    {
+      "name": "Buggatti",
+      "email": "test@seller.com",
+      "password": "123asd",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "name": "omega watch",
+      "price": "2699",
+      "category": "watch",
+      "description": "watch omega",
+      "image": "https://th.bing.com/th/id/OIP.dNoziTQyAzgHISZpMQY_vAAAAA?w=179&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "id": "ba3a"
+    },
+    {
+      "name": "s24 ultra",
+      "price": "1899",
+      "category": "mobile",
+      "description": "Samsung flagship phone",
+      "image": "https://th.bing.com/th/id/OIP.EP280UWCnGXph3nWf8SViAHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "id": "45f2"
+    },
+    {
+      "id": "47a2",
+      "name": "iPhone 14",
+      "price": "999",
+      "category": "mobile",
+      "description": "Apple product smartphone",
+      "image": "https://th.bing.com/th/id/OIP.OEgWfUCoxDO1H5IQUr4cmwHaHa?w=199&h=199&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    },
+    {
+      "id": "a13d",
+      "name": "Black vested suit",
+      "price": "4999",
+      "category": "clothing",
+      "description": "Luxury suit made with sooftest fabric",
+      "image": "https://th.bing.com/th/id/OIP.U4wx6K0QzCgw8GGKfXajmAHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+      "id": "6f1e",
+      "name": "Nerf gun",
+      "price": "79.",
+      "category": "toys",
+      "description": "Blue nerf gun with foam darts",
+      "image": "data:image/webp;base64,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"
+    },
+    {
+      "id": "e7d1",
+      "name": "Center Table",
+      "price": "2499",
+      "category": "home",
+      "description": "A wooden table made for modern homes",
+      "image": "https://th.bing.com/th/id/OIP.LBHBSD7-0PHp-xrQB8YgFQHaHa?w=177&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    },
+    {
+      "id": "4e52",
+      "name": "Harry Potter",
+      "price": "29",
+      "category": "books",
+      "description": "Harry potter series (All parts)",
+      "image": "https://th.bing.com/th/id/OIP.6m-TQJZ9FoZJBEIzkh-nPQHaHa?w=190&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+      "id": "6f4e",
+      "name": "Lakme 9to5 Primer",
+      "price": "199",
+      "category": "beauty",
+      "description": "primer for even tone skin",
+      "image": "https://th.bing.com/th/id/OIP.55Yg8XhwHaCYObSLNt4u9wHaHa?w=138&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    }
+  ],
+  "users": [
+    {
+      "name": "name",
+      "email": "sudoku@name.com",
+      "password": "asds",
+      "id": 1
+    },
+    {
+      "name": "user",
+      "email": "user@test.com",
+      "password": "asd123",
+      "id": 2
+    },
+    {
+      "name": "Buggatti",
+      "email": "test@user.com",
+      "password": "asd123",
+      "id": 3
+    },
+    {
+      "name": "user24",
+      "email": "user2@test.com",
+      "password": "asd",
+      "id": 4
+    },
+    {
+      "name": "Buggatti",
+      "email": "test@seller.com",
+      "password": "sdf",
+      "id": 5
+    },
+    {
+      "name": "anit",
+      "email": "user3@test.com",
+      "password": "asd123",
+      "id": 6
+    },
+    {
+      "name": "Buggatti",
+      "email": "test@user2.com",
+      "password": "asd123",
+      "id": 7
+    },
+    {
+      "name": "test1",
+      "email": "test1@user.com",
+      "password": "asd123",
+      "id": 8
+    }
+  ],
+  "cart": [],
+  "orders": []
+}

@@ -1,0 +1,57 @@
+img {
+    height: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+.col-sm-8 {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.col-sm-4 ul {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+p {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* for smaller than lg size */
+@media only screen and (max-width: 991px) {
+    .col-sm-8 ul {
+        padding: 10px 0 10px 0 !important;
+        display: grid !important;
+        justify-content: center;
+    }
+
+    .col-sm-8 ul li {
+        display: grid;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 574px) {
+    .col-sm-8 {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .col-sm-4 ul {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 0px;
+    }
+}
