@@ -1,17 +1,5 @@
 {
-  "seller": [
-    {
-      "email": "admin",
-      "password": "admin",
-      "id": 1
-    },
-    {
-      "name": "test",
-      "email": "test@seller.com",
-      "password": "asd123",
-      "id": 2
-    }
-  ],
+  "seller": [],
   "products": [
     {
       "name": "omega watch",

@@ -1,4 +1,4 @@
 export const environment = {
-  "production": true,
-  "url": "http://localhost:8080/api"
+    "production": true,
+    "url": "https://angularecom.onrender.com"
 };
