@@ -11,24 +11,19 @@ const middlewares = jsonServer.defaults();
 
 const PORT = process.env.PORT || 8080;
 
+app.use(express.json());
+
 app.use(cors({
-    origin: 'https://angularecomme.netlify.app',
+    origin: ['http://localhost:4200', 'https://angularecomme.netlify.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
-
-app.use(express.json());
 
 // Serve Angular dist
 app.use(express.static(path.join(__dirname, 'dist/ecom-proj2/browser')));
 
 // JSON Server API at /api
 app.use('/api', middlewares, apiRouter);
-
-// Fallback for Angular routing
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/ecom-proj2/browser/index.html'));
-});
 
 app.post('/seller', express.json(), (req, res) => {
     const sellerData = req.body;
@@ -48,6 +43,11 @@ app.use((req, res) => {
     res.status(404).json({ message: 'Route not found' });
 });
 
+// Fallback for Angular routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/ecom-proj2/browser/index.html'));
+});
+
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
