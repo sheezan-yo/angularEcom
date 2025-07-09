@@ -3,6 +3,7 @@ process.env.DEBUG = '';
 const express = require('express');
 const jsonServer = require('json-server');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const apiRouter = jsonServer.router('db.json');
@@ -30,3 +31,9 @@ app.post('/seller', express.json(), (req, res) => {
     // Save sellerData to db.json or perform logic
     res.status(201).json({ message: 'Seller registered', seller: sellerData });
 });
+
+app.use(cors({
+    origin: 'https://angularecomme.netlify.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
