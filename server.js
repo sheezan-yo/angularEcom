@@ -22,10 +22,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/ecom-proj2/browser/index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-
 app.post('/seller', express.json(), (req, res) => {
     const sellerData = req.body;
     // Save sellerData to db.json or perform logic
@@ -37,3 +33,21 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
+
+app.use(express.json());
+
+// ✅ This must exist
+app.post('/users', (req, res) => {
+    const user = req.body;
+    console.log('Received user:', user);
+    res.status(201).json({ message: 'User created', user });
+});
+
+// Fallback route to avoid 404s on other paths
+app.use((req, res) => {
+    res.status(404).json({ message: 'Route not found' });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
