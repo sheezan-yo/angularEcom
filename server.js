@@ -11,6 +11,14 @@ const middlewares = jsonServer.defaults();
 
 const PORT = process.env.PORT || 8080;
 
+app.use(cors({
+    origin: 'https://angularecomme.netlify.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
+app.use(express.json());
+
 // Serve Angular dist
 app.use(express.static(path.join(__dirname, 'dist/ecom-proj2/browser')));
 
@@ -28,14 +36,6 @@ app.post('/seller', express.json(), (req, res) => {
     res.status(201).json({ message: 'Seller registered', seller: sellerData });
 });
 
-app.use(cors({
-    origin: 'https://angularecomme.netlify.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
-
-app.use(express.json());
-
 // ✅ This must exist
 app.post('/users', (req, res) => {
     const user = req.body;
@@ -48,6 +48,6 @@ app.use((req, res) => {
     res.status(404).json({ message: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
