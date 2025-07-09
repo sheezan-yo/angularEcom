@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Seller } from '../services/seller';
-import { Router } from '@angular/router';
 import { signUp } from '../data-type';
 import { NgIf } from '@angular/common';
 
@@ -13,7 +12,7 @@ import { NgIf } from '@angular/common';
 })
 export class SellerAuth implements OnInit {
   showLogin = false;
-  constructor(private seller: Seller, private router: Router) { }
+  constructor(private seller: Seller) { }
 
   ngOnInit(): void {
     this.seller.reloadSeller();

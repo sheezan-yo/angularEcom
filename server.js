@@ -17,10 +17,16 @@ app.use(express.static(path.join(__dirname, 'dist/ecom-proj2/browser')));
 app.use('/api', middlewares, apiRouter);
 
 // Fallback for Angular routing
-app.get('/{*any}', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/ecom-proj2/browser/index.html'));
 });
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+});
+
+app.post('/seller', express.json(), (req, res) => {
+    const sellerData = req.body;
+    // Save sellerData to db.json or perform logic
+    res.status(201).json({ message: 'Seller registered', seller: sellerData });
 });
